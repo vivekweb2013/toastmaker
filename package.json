@@ -1,0 +1,35 @@
+{
+  "name": "toastmaker",
+  "version": "1.0.0",
+  "description": "Toast Maker",
+  "main": "toastmaker.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "nyc --reporter=lcov npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekweb2013/toastmaker.git"
+  },
+  "author": "Vivek <vivekweb2013@gmail.com> (http://wirehall.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vivekweb2013/toastmaker/issues"
+  },
+  "homepage": "https://github.com/vivekweb2013/toastmaker#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "jsdom": "16.2.2",
+    "jsdom-global": "3.0.2",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0"
+  },
+  "keywords": [
+    "toastmaker",
+    "toast",
+    "npm",
+    "package",
+    "module",
+    "lightweight"
+  ]
+}
