@@ -1,7 +1,7 @@
 {
   "name": "toastmaker",
   "version": "1.0.0",
-  "description": "Toast Maker",
+  "description": "ToastMaker is a light simple javascript library for showing toast messages on web page",
   "main": "toastmaker.js",
   "scripts": {
     "test": "mocha",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/vivekweb2013/toastmaker.git"
   },
   "author": "Vivek <vivekweb2013@gmail.com> (http://wirehall.com)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vivekweb2013/toastmaker/issues"
   },
@@ -30,6 +30,7 @@
     "npm",
     "package",
     "module",
-    "lightweight"
+    "lightweight",
+    "javascript"
   ]
 }
