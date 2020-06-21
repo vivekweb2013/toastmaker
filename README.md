@@ -1,14 +1,17 @@
 # ToastMaker
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vivekweb2013_toastmaker&metric=alert_status)](https://sonarcloud.io/dashboard?id=vivekweb2013_toastmaker)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=vivekweb2013_toastmaker&metric=coverage)](https://sonarcloud.io/dashboard?id=vivekweb2013_toastmaker)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=vivekweb2013_toastmaker&metric=code_smells)](https://sonarcloud.io/dashboard?id=vivekweb2013_toastmaker)
 
-Toast Maker is a simple and very lightweight library for showing toast message on web page.
+Toast Maker is a simple and very lightweight library for showing toast message on web page. It provides multiple configurations to customize the toast styling(font, background, size ... anything), duration, position etc.
 
 
 ## Features
 
-* Small Footprint
-* Customizable Styling
+* Small footprint
+* Customizable styling
 * Can be used in Vanilla JavaScript or NPM project
+* Works with - IE10, IE11, Edge, Chrome, Firefox, Safari, Opera
 
 ## Installation
 
