@@ -28,6 +28,7 @@
 test
 
 # Ignore other files
+package-lock.json
 sonar-project.properties
 .github
 .nyc_output
