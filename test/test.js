@@ -3,6 +3,8 @@ const expect = require('chai').expect;
 const ToastMaker = require('../lib/toastmaker');
 
 const DEFAULT_TOAST_TIMEOUT = 3000;
+const DEFAULT_TOAST_CLASS = 'toastmaker';
+const ADJUSTED_TEST_EXECUTION_TIMEOUT = DEFAULT_TOAST_TIMEOUT + 2000;
 
 
 before(function () {
@@ -14,42 +16,44 @@ after(function () {
     this.jsdom();
 });
 
-describe('ToastMaker', () => {
-    it('should throw error if no text argument is passed for toast', () => {
-        expect(() => ToastMaker()).to.throw("Invalid argument 'text'. Argument is either empty, null or undefined");
+describe('Validate "text" Option', () => {
+    context('when invalid `text` is passed to ToastMaker', function () {
+
+        it('should throw error if text argument empty or undefined', () => {
+            expect(() => ToastMaker()).to.throw("Invalid argument 'text'. Argument is either empty, null or undefined");
+            expect(() => ToastMaker('')).to.throw("Invalid argument 'text'. Argument is either empty, null or undefined");
+        });
+
+        it('should throw error if text argument type is number', () => {
+            expect(() => ToastMaker(12345)).to.throw("Invalid argument 'text'. Type must be string but found number");
+            expect(() => ToastMaker(0)).to.throw("Invalid argument 'text'. Type must be string but found number");
+            expect(() => ToastMaker(-12345)).to.throw("Invalid argument 'text'. Type must be string but found number");
+        });
+
+        it('should throw error if text argument type is object', () => {
+            expect(() => ToastMaker({})).to.throw("Invalid argument 'text'. Type must be string but found object");
+            expect(() => ToastMaker([])).to.throw("Invalid argument 'text'. Type must be string but found object");
+        });
     });
-});
 
-describe('ToastMaker', () => {
-    it('should throw error if number is specified as text argument for toast', () => {
-        expect(() => ToastMaker(12345)).to.throw("Invalid argument 'text'. Type must be string but found number");
+    context('when valid "text" is passed to ToastMaker', function () {
+
+        it('should create and show the toast element', function (done) {
+            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            expect(() => ToastMaker('Hi')).to.not.throw();
+
+            //check if toast element is created in dom
+            const toast = document.getElementsByClassName(DEFAULT_TOAST_CLASS);
+            assert.equal(toast.length, 1);
+
+            setTimeout(() => {
+                //check if toast element is removed from dom
+                const toastAfterTimeout = document.getElementsByClassName(DEFAULT_TOAST_CLASS);
+                assert.equal(toastAfterTimeout.length, 0);
+                done();
+            }, DEFAULT_TOAST_TIMEOUT);
+        });
+
     });
-});
 
-describe('ToastMaker', () => {
-    it('should throw error if object is specified as text argument for toast', () => {
-        expect(() => ToastMaker({})).to.throw("Invalid argument 'text'. Type must be string but found object");
-    });
-});
-
-describe('ToastMaker', () => {
-    it('should throw error if empty string is specified as text argument for toast', () => {
-        expect(() => ToastMaker('')).to.throw("Invalid argument 'text'. Argument is either empty, null or undefined");
-    });
-});
-
-describe('ToastMaker', () => {
-    it('should not throw error if non-empty text argument is passed for toast', function (done) {
-        this.timeout(5000);
-        expect(() => ToastMaker('Hi')).to.not.throw();
-
-        const toast = document.getElementsByClassName('toastmaker');
-        assert.equal(toast.length, 1);
-
-        setTimeout(() => {
-            const toastAfterTimeout = document.getElementsByClassName('toastmaker');
-            assert.equal(toastAfterTimeout.length, 0);
-            done();
-        }, DEFAULT_TOAST_TIMEOUT);
-    });
 });
