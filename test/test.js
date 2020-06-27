@@ -1,5 +1,8 @@
-const assert = require('chai').assert;
-const expect = require('chai').expect;
+const chai = require('chai');
+const assert = chai.assert;
+const expect = chai.expect;
+const Module = require("module");
+const wrap = Module.wrap;
 const ToastMaker = require('../lib/toastmaker');
 
 const DEFAULT_TOAST_TIMEOUT = 3000;
@@ -8,15 +11,64 @@ const DEFAULT_ALIGN_CLASS = 'toastmaker-center';
 const DEFAULT_VALIGN_CLASS = 'toastmaker-bottom';
 const ADJUSTED_TEST_EXECUTION_TIMEOUT = DEFAULT_TOAST_TIMEOUT + 2000;
 
-
 before(function () {
     // runs once before the first test in this block
     this.jsdom = require('jsdom-global')();
 });
+
 after(function () {
     // runs once after the last test in this block
     this.jsdom();
 });
+
+function requireUncached(module) {
+    delete require.cache[require.resolve(module)];
+    return require(module);
+}
+
+describe('test module loading', function () {
+    context('with amd/define available as global', function () {
+        const moduleWrapCopy = Module.wrap;
+
+        before(function () {
+            Module.wrap = function (script) {
+                script = `
+                        define = function () {
+                            console.log('    I am a fake define!    ');
+                        }
+            
+                        define.amd = true;` + script;
+                return moduleWrapCopy(script); // Call original wrapper function
+            };
+        });
+        it('should run without any error', function () {
+            const ToastMaker = requireUncached("../lib/toastmaker");
+        });
+        after(function () { Module.wrap = wrap; });
+    });
+
+    context('with no exports/define available', function () {
+        const moduleWrapCopy = Module.wrap;
+
+        before(function () {
+            Module.wrap = function (script) {
+                script = `exports = 'test';
+                delete define;
+                ` + script;
+                return moduleWrapCopy(script); // Call original wrapper function
+            };
+        });
+
+        it('should run without any error', function () {
+            const ToastMaker = requireUncached("../lib/toastmaker");
+        });
+
+        after(function () { Module.wrap = wrap; });
+    });
+
+    after(function () { Module.wrap = wrap; });
+});
+
 
 describe('Validate "text" Option', () => {
 
