@@ -16,6 +16,9 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 10
+    - run: npm install -g gulp
+    - run: npm install
+    - run: npm run build
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@1.2.0
       with: # All of theses inputs are optional
