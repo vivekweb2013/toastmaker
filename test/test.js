@@ -218,6 +218,12 @@ describe('Validate Additional Options', () => {
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { styles: [1, 2, 3] })).to.throw("Invalid argument 'styles'. Type must be object but found array");
         });
 
+        it('should throw error if "styles" has invalid property value', () => {
+            expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { styles: { fontSize: [123] } })).to.throw("Invalid value '[123]' specified for style 'fontSize'. Style value must be of type string or number");
+            expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { styles: { fontSize: {} } })).to.throw("Invalid value '{}' specified for style 'fontSize'. Style value must be of type string or number");
+            expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { styles: { fontSize: true } })).to.throw("Invalid value 'true' specified for style 'fontSize'. Style value must be of type string or number");
+        });
+
         it('should throw error if "align" option type is boolean', () => {
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { align: true })).to.throw("Invalid argument 'align'. Type must be string but found boolean");
         });
@@ -272,6 +278,12 @@ describe('Validate Additional Options', () => {
 
         it('should throw error if "classList" option type is object', () => {
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { classList: {} })).to.throw("Invalid argument 'classList'. Type must be array but found object");
+        });
+
+        it('should throw error if "classList" contains invalid value', () => {
+            expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { classList: [1, 2] })).to.throw("Invalid css class '1'. CSS class must be of type string");
+            expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { classList: [{}] })).to.throw("Invalid css class '{}'. CSS class must be of type string");
+            expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { classList: [true] })).to.throw("Invalid css class 'true'. CSS class must be of type string");
         });
 
     });
