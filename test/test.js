@@ -3,7 +3,7 @@ const assert = chai.assert;
 const expect = chai.expect;
 const Module = require("module");
 const wrap = Module.wrap;
-const ToastMaker = require('../lib/toastmaker');
+const ToastMaker = require('../src/toastmaker');
 
 const DEFAULT_TOAST_TIMEOUT = 3000;
 const DEFAULT_TOAST_CLASS = 'toastmaker';
@@ -42,7 +42,7 @@ describe('test module loading', function () {
             };
         });
         it('should run without any error', function () {
-            const ToastMaker = requireUncached("../lib/toastmaker");
+            const ToastMaker = requireUncached("../src/toastmaker");
         });
         after(function () { Module.wrap = wrap; });
     });
@@ -60,7 +60,7 @@ describe('test module loading', function () {
         });
 
         it('should run without any error', function () {
-            const ToastMaker = requireUncached("../lib/toastmaker");
+            const ToastMaker = requireUncached("../src/toastmaker");
         });
 
         after(function () { Module.wrap = wrap; });

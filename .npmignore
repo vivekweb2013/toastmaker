@@ -1,38 +1,49 @@
-# everything in node_modules is ignored, except for bundled dependencies. npm automatically handles this for you, so don't bother adding node_modules to . npmignore
+# According to https://docs.npmjs.com/files/package.json#files
 
-# By default, the following paths and files are ignored, so there's no need to add them to .npmignore explicitly:
-#
-# .*.swp
-# ._*
-# .DS_Store
-# .git
-# .hg
-# .npmrc
-# .lock-wscript
-# .svn
-# .wafpickle-*
-# config.gypi
-# CVS
-# npm-debug.log
+# Files included with the “package.json#files” field cannot be excluded through .npmignore or .gitignore.
 
+# Certain files are always included, regardless of settings:
 
-# The following paths and files are never ignored, so adding them to .npmignore is pointless:
-#
 # package.json
-# README (and its variants)
-# CHANGELOG (and its variants)
+# README
+# CHANGES / CHANGELOG / HISTORY
 # LICENSE / LICENCE
+# NOTICE
+# The file in the “main” field
+# README, CHANGES, LICENSE & NOTICE can have any case and extension.
 
+# Conversely, some files are always ignored:
+
+# .git
+# CVS
+# .svn
+# .hg
+# .lock-wscript
+# .wafpickle-N
+# .*.swp
+# .DS_Store
+# ._*
+# npm-debug.log
+# .npmrc
+# node_modules
+# config.gypi
+# *.orig
+# package-lock.json (use shrinkwrap instead)
+
+# To check what will be included in package to be published, run
+# npm publish --dry-run
 
 # Ignore test directory
 test
 
 # Ignore other files
+src
 package-lock.json
 sonar-project.properties
 .github
 .nyc_output
 coverage
+gulpfile
 
 # IDE
 .vscode

@@ -8,7 +8,6 @@
         global.ToastMaker = factory();
     }
 }(this, function (global) {
-    'use strict';
 
     var ToastMaker = function (text, timeout, options) {
         // Validate mandatory options

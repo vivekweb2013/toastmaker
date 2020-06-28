@@ -2,10 +2,15 @@
   "name": "toastmaker",
   "version": "1.0.4",
   "description": "ToastMaker is a light simple javascript library for showing toast messages on web page",
-  "main": "lib/toastmaker.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/toastmaker.js",
   "scripts": {
+    "build": "gulp",
     "test": "mocha",
-    "coverage": "nyc --reporter=lcov npm run test"
+    "coverage": "nyc --reporter=lcov npm run test",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +24,12 @@
   "homepage": "https://github.com/vivekweb2013/toastmaker#readme",
   "devDependencies": {
     "chai": "^4.2.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
     "jsdom": "16.2.2",
     "jsdom-global": "3.0.2",
     "mocha": "^8.0.1",

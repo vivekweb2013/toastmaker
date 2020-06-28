@@ -36,7 +36,7 @@ yarn add toastmaker -S
 After adding the `ToastMaker` module to your project, import the ToastMaker in your script as shown below.
 ```
 import ToastMaker from 'toastmaker';
-import "toastmaker/lib/toastmaker.css";
+import "toastmaker/dist/toastmaker.css";
 ```
 
 **NOTE:** The `toastmaker.css` is the default css file. Importing `toastmaker.css` is optional, if you want you can create your own css file and import it instead of this default one.
@@ -44,9 +44,9 @@ import "toastmaker/lib/toastmaker.css";
 #### Plain Vanilla JavaScript
 You can also use this library in Plain JavaScript and HTML. Follow the steps mentioned below to include ToastMaker js and css inside plain HTML/JS
 ```html
-<link rel="stylesheet" type="text/css" href="./toastmaker/lib/toastmaker.css">
+<link rel="stylesheet" type="text/css" href="./toastmaker/dist/toastmaker.min.css">
 
-<script type="text/javascript" src="./toastmaker/lib/toastmaker.js"></script>
+<script type="text/javascript" src="./toastmaker/dist/toastmaker.min.js"></script>
 ```
 
 ## How to use?
