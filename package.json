@@ -2,7 +2,7 @@
   "name": "toastmaker",
   "version": "1.0.2",
   "description": "ToastMaker is a light simple javascript library for showing toast messages on web page",
-  "main": "toastmaker.js",
+  "main": "lib/toastmaker.js",
   "scripts": {
     "test": "mocha",
     "coverage": "nyc --reporter=lcov npm run test"
