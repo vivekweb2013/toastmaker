@@ -3,9 +3,11 @@
   "version": "1.0.5",
   "description": "ToastMaker is a light simple javascript library for showing toast messages on web page",
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "*.d.ts"
   ],
   "main": "dist/toastmaker.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "gulp",
     "test": "mocha",
