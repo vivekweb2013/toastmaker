@@ -44,9 +44,9 @@ import "toastmaker/dist/toastmaker.css";
 #### Plain Vanilla JavaScript
 You can also use this library in Plain JavaScript and HTML. Follow the steps mentioned below to include ToastMaker js and css inside plain HTML/JS
 ```html
-<link rel="stylesheet" type="text/css" href="./toastmaker/dist/toastmaker.min.css">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/toastmaker/dist/toastmaker.min.css">
 
-<script type="text/javascript" src="./toastmaker/dist/toastmaker.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/toastmaker/dist/toastmaker.min.js"></script>
 ```
 
 ## How to use?
