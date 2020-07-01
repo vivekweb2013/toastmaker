@@ -38,6 +38,7 @@ test
 
 # Ignore other files
 src
+build
 package-lock.json
 sonar-project.properties
 .github
