@@ -1,7 +1,7 @@
 {
   "name": "toastmaker",
   "version": "1.0.6",
-  "description": "ToastMaker is a light simple javascript library for showing toast messages on web page",
+  "description": "ToastMaker is a light javascript library for showing toast notifications on web page",
   "files": [
     "dist/**/*",
     "*.d.ts"
@@ -47,7 +47,8 @@
     "package",
     "module",
     "lightweight",
-    "javascript"
+    "javascript",
+    "notification"
   ],
   "dependencies": {}
 }

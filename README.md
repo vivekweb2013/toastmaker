@@ -5,23 +5,24 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=vivekweb2013_toastmaker&metric=coverage)](https://sonarcloud.io/dashboard?id=vivekweb2013_toastmaker)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=vivekweb2013_toastmaker&metric=code_smells)](https://sonarcloud.io/dashboard?id=vivekweb2013_toastmaker)
 
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/toastmaker)](https://bundlephobia.com/result?p=toastmaker)
 [![npm](https://img.shields.io/npm/v/toastmaker)](https://www.npmjs.com/package/toastmaker)
 [![GitHub](https://img.shields.io/github/license/vivekweb2013/toastmaker?color=blue)](LICENSE)
 
-Toast Maker is a simple and very lightweight library for showing toast message on web page. It provides multiple configurations to customize the toast styling(font, background, size ... anything), duration, position etc.
+Toast Maker is a simple and very lightweight javascript library for showing toast notification messages on web page. It provides multiple configurations to customize the toast styling(font, background, size ... anything), duration, position etc.
 
 
 ## Features
 
-* Small footprint
+* [Small footprint](#Bundle-size)
 * Customizable styling
-* Can be used in Vanilla JavaScript or NPM project
+* Can be used with vanilla javascript or npm project
 * Works with - IE10, IE11, Edge, Chrome, Firefox, Safari, Opera
 
-## Installation
+## Include toastmaker library into the project
 
-#### NPM or Yarn Project
-Follow the steps mentioned below to install the library in NPM project.
+### Install toastmaker module in npm project
+Follow the steps mentioned below to install the library in npm project.
 
 ```
 npm install --save toastmaker
@@ -33,24 +34,32 @@ or
 yarn add toastmaker -S
 ```
 
-After adding the `ToastMaker` module to your project, import the ToastMaker in your script as shown below.
+After adding the `toastmaker` module to your project, import it in your script as shown below.
 ```
 import ToastMaker from 'toastmaker';
 import "toastmaker/dist/toastmaker.css";
 ```
 
-**NOTE:** The `toastmaker.css` is the default css file. Importing `toastmaker.css` is optional, if you want you can create your own css file and import it instead of this default one.
+**NOTE:** The `toastmaker.css` is the default css file. If you want you can refer to it and create your own css file and import it instead of this default one.
 
-#### Plain Vanilla JavaScript
-You can also use this library in Plain JavaScript and HTML. Follow the steps mentioned below to include ToastMaker js and css inside plain HTML/JS
+### Include toastmaker library in a plain html
+ToastMaker can also be used with plain vanilla javascript project. Just add the minified javascript and css file in you main html and you can start using it inside the javascript.
+
 ```html
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/toastmaker/dist/toastmaker.min.css">
 
 <script type="text/javascript" src="https://unpkg.com/toastmaker/dist/toastmaker.min.js"></script>
 ```
+If you want you can download the bundle from the [releases section](https://github.com/vivekweb2013/toastmaker/releases/latest), then include & reference the files locally rather than using the cdn links.
 
 ## How to use?
-Using `ToastMaker` is very simple. Create the toast with some message, as shown in below example
+Using `ToastMaker` is very simple. Create a toast by passing the text message, as shown in below example
+
+```javascript
+  ToastMaker('Hi There!');
+```
+
+If you want to change the default timeout, position, styling etc you can pass the optional arguments. Refer below example.
 
 ```javascript
   ToastMaker('Hi There!', 2000,  {
@@ -61,11 +70,17 @@ Using `ToastMaker` is very simple. Create the toast with some message, as shown 
   });
 ```
 
-You can exclude the optional arguments, since the only mandatory argument is text, you can simply create the toast with minimal code as shown below.
+### Use your own styles and css classes
+
+You can specify multiple styles or your own css classes using `styles` and `classList` options respectively. This is useful in case you want to change the background, font-size, color, padding, border, ... and a lot of other styling as per your requirement.
 
 ```javascript
-  ToastMaker('Hi There!');
+  ToastMaker("Hi There!", 2000,  {
+    styles: { fontSize: "15px" },
+    classList: ["custom-class"]
+  });
 ```
+
 
 ## Options
 
@@ -75,20 +90,28 @@ You can exclude the optional arguments, since the only mandatory argument is tex
 | `timeout` | number | Duration (In milliseconds) for which the toast should be displayed | `3000` | No |
 | `styles` | object | Object containing style properties to be applied to toast | N/A | No |
 | `classList` | array | Array of css classes to be applied to toast | N/A | No |
-| `align` | string <BR />`(left,center,right)` | Horizontal alignment for toast | `center` | No |
-| `valign` | string <BR />`(top,bottom)` | Vertical alignment for toast | `bottom` | No |
+| `align` | `'left'` <BR /> `'center'` <BR /> `'right'` | Horizontal alignment for toast | `'center'` | No |
+| `valign` | `'top'` <BR /> `'bottom'` | Vertical alignment for toast | `'bottom'` | No |
+
+**Note:** All options except `text` and `timeout` needs to be wrapped inside an object and passed to the `ToastMaker` as the 3rd argument. 
+
+Refer [How to use?](#How-to-use?) section to know how these options should be used with the `ToastMaker` function.
 
 
-### Use your own styles/classes
+## Bundle size
 
-You can add your own styles or css classes using `styles` and `classList` options. This is useful in case you want to change background, font-size, color etc styling as per your requirement.
+|              |                size |                gzip |
+| :----------- | ------------------: | ------------------: |
+| toastmaker   |  ![toastmaker_size] |  ![toastmaker_gzip] |
+| toastify-js  | ![toastify-js_size] | ![toastify-js_gzip] |
+| toastr       |      ![toastr_size] |      ![toastr_gzip] |
 
-```javascript
-  ToastMaker("Hi There!", 2000,  {
-    styles: { fontSize: "15px" },
-    classList: ["custom-class"]
-  });
-```
+[toastmaker_size]: https://img.shields.io/bundlephobia/min/toastmaker
+[toastmaker_gzip]: https://img.shields.io/bundlephobia/minzip/toastmaker
+[toastify-js_size]: https://img.shields.io/bundlephobia/min/toastify-js
+[toastify-js_gzip]: https://img.shields.io/bundlephobia/minzip/toastify-js
+[toastr_size]: https://img.shields.io/bundlephobia/min/toastr
+[toastr_gzip]: https://img.shields.io/bundlephobia/minzip/toastr
 
 ## Versioning
 
