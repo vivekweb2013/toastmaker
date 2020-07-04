@@ -9,7 +9,7 @@ const DEFAULT_TOAST_TIMEOUT = 3000;
 const DEFAULT_TOAST_CLASS = 'toastmaker';
 const DEFAULT_ALIGN_CLASS = 'toastmaker-center';
 const DEFAULT_VALIGN_CLASS = 'toastmaker-bottom';
-const ADJUSTED_TEST_EXECUTION_TIMEOUT = DEFAULT_TOAST_TIMEOUT + 2000;
+const TEST_EXECUTION_TIME_WITH_OFFSET = DEFAULT_TOAST_TIMEOUT + 2000;
 
 before(function () {
     // runs once before the first test in this block
@@ -98,12 +98,33 @@ describe('Validate "text" Option', () => {
     context('when valid "text" is passed to ToastMaker', () => {
 
         it('should create and show the toast element', function (done) {
-            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
             expect(() => ToastMaker('Hi')).to.not.throw();
 
             // check if toast element is created in dom
             const toastElements = document.getElementsByClassName(DEFAULT_TOAST_CLASS);
             assert.equal(toastElements.length, 1);
+            const toastElement = toastElements[0];
+            assert.equal(toastElement.textContent, 'Hi');
+
+            setTimeout(() => {
+                // check if toast element is removed from dom
+                const toastAfterTimeout = document.getElementsByClassName(DEFAULT_TOAST_CLASS);
+                assert.equal(toastAfterTimeout.length, 0);
+                done();
+            }, DEFAULT_TOAST_TIMEOUT);
+        });
+
+        it('should create even if text contains emojis', function (done) {
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
+            const emojiText = '😀👐🏾🦋🔥🌈🍮🍪🚌✈️💿☎️☁︎✂︎⛴🏈';
+            expect(() => ToastMaker(emojiText)).to.not.throw();
+
+            // check if toast element is created in dom
+            const toastElements = document.getElementsByClassName(DEFAULT_TOAST_CLASS);
+            assert.equal(toastElements.length, 1);
+            const toastElement = toastElements[0];
+            assert.equal(toastElement.textContent, emojiText);
 
             setTimeout(() => {
                 // check if toast element is removed from dom
@@ -140,7 +161,7 @@ describe('Validate "timeout" Option', () => {
 
         it('should not throw error if "timeout" argument type is undefined or null', function (done) {
             // in this case toast should be created with default timeout.
-            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
 
             expect(() => ToastMaker('Hi', undefined)).to.not.throw();
             // check if toast element is created in dom
@@ -291,7 +312,7 @@ describe('Validate Additional Options', () => {
     context('when valid "options" is passed to ToastMaker', () => {
 
         it('should not throw error if "options" argument type is undefined or null', function (done) {
-            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
 
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, undefined)).to.not.throw();
             // check if toast element is created in dom
@@ -307,7 +328,7 @@ describe('Validate Additional Options', () => {
         });
 
         it('should create toast with specified "styles" option', function (done) {
-            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
 
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, {
                 styles: {
@@ -331,7 +352,7 @@ describe('Validate Additional Options', () => {
         });
 
         it('should create toast with default "align" & "valign" classes', function (done) {
-            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
 
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, {})).to.not.throw();
             // check if toast element is created in dom
@@ -348,7 +369,7 @@ describe('Validate Additional Options', () => {
         });
 
         it('should create toast with specified "align" & "valign" classes', function (done) {
-            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
 
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, { align: 'right', valign: 'top' })).to.not.throw();
             // check if toast element is created in dom
@@ -365,7 +386,7 @@ describe('Validate Additional Options', () => {
         });
 
         it('should create toast with specified "classList" option', function (done) {
-            this.timeout(ADJUSTED_TEST_EXECUTION_TIMEOUT);
+            this.timeout(TEST_EXECUTION_TIME_WITH_OFFSET);
 
             expect(() => ToastMaker('Hi', DEFAULT_TOAST_TIMEOUT, {
                 classList: ['custom-class', 'other-custom-class']
