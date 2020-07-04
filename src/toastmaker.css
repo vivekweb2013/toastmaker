@@ -10,6 +10,7 @@
     position: fixed;
     text-align: center;
     text-decoration: none;
+    z-index: 2147483647;
 }
 .toastmaker-bottom {
     bottom: 10%;
