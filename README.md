@@ -14,7 +14,7 @@ Toast Maker is a simple and very lightweight javascript library for showing toas
 
 ## Features
 
-* [Small footprint](#Bundle-size)
+* [Small footprint](#bundle-size)
 * Customizable styling
 * Can be used with vanilla javascript or npm project
 * Works with - IE10, IE11, Edge, Chrome, Firefox, Safari, Opera
@@ -95,7 +95,7 @@ You can specify multiple styles or your own css classes using `styles` and `clas
 
 **Note:** All options except `text` and `timeout` needs to be wrapped inside an object and passed to the `ToastMaker` as the 3rd argument. 
 
-Refer [How to use?](#How-to-use?) section to know how these options should be used with the `ToastMaker` function.
+Refer [How to use?](#how-to-use) section to know how these options should be used with the `ToastMaker` function.
 
 
 ## Bundle size
