@@ -13,7 +13,7 @@
     z-index: 2147483647;
 }
 .toastmaker-bottom {
-    bottom: 10%;
+    bottom: 1rem;
 }
 .toastmaker-center {
     left: 0;
@@ -23,13 +23,13 @@
     right: 0;
 }
 .toastmaker-left {
-    left: 10%;
+    left: 1rem;
 }
 .toastmaker-right {
-    right: 10%;
+    right: 1rem;
 }
 .toastmaker-top {
-    top: 10%;
+    top: 1rem;
 }
 @keyframes toastEffect {
     0% {
