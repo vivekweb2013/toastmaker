@@ -7,6 +7,7 @@ const uglify = require('gulp-uglify');
 const minifyCss = require('gulp-minify-css');
 const rename = require('gulp-rename');
 const zip = require('gulp-zip');
+const replace = require('gulp-replace');
 const projectVersion = require('./package.json').version;
 
 const SOURCE_PATH = 'src/';
@@ -24,9 +25,10 @@ function cleanBuild() {
 function buildScripts() {
     // store both minified and unminified scrips to dist
     return src(`${SOURCE_PATH}/*.js`)
+        .pipe(replace(/(\/\*\!\n\s+\*\sToastMaker)/m, '$1 v' + projectVersion)) // add version in license comment
         .pipe(babel())
         .pipe(dest(DISTRIBUTABLE_PATH))
-        .pipe(uglify())
+        .pipe(uglify({ output: { comments: "some" /* to preserve license comment */ } }))
         .pipe(rename({ extname: '.min.js' }))
         .pipe(dest(DISTRIBUTABLE_PATH));
 }
@@ -34,16 +36,17 @@ function buildScripts() {
 function buildCss() {
     // store both minified and unminified css to dist
     return src(`${SOURCE_PATH}/*.css`)
+        .pipe(replace(/(\/\*\!\n\s+\*\sToastMaker)/m, '$1 v' + projectVersion)) // add version in license comment
         .pipe(dest(DISTRIBUTABLE_PATH))
-        .pipe(minifyCss())
+        .pipe(minifyCss()/* auto preserves license comment */)
         .pipe(rename({ extname: '.min.css' }))
         .pipe(dest(DISTRIBUTABLE_PATH));
 }
 
 function generatePackage() {
-    // mainly created for ci, so that package can be uploaded to release
-    // store the package in the build dir and not in the dist
-    // since dist dir is used in npm publish
+    // mainly created for ci, so that package can be uploaded to the release page.
+    // store the package in the build dir & not in the dist
+    // since dist dir is used in npm publish and we want to only include code & not any zip in npm module.
 
     return src(`${DISTRIBUTABLE_PATH}/**/*`)
         .pipe(zip(`toastmaker-v${projectVersion}.zip`))

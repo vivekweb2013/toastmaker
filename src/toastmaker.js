@@ -1,7 +1,7 @@
 /*!
  * ToastMaker
  * https://github.com/vivekweb2013/toastmaker
- * License: MIT
+ * @license MIT
  */
 (function (global, factory) {
     // UMD(Universal Module Definition) Pattern - https://github.com/umdjs/umd
