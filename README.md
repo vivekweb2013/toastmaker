@@ -11,6 +11,9 @@
 
 Toast Maker is a simple and very lightweight javascript library for showing toast notification messages on web page. It provides multiple configurations to customize the toast styling(font, background, size ... anything), duration, position etc.
 
+## Demo
+
+[ToastMaker Demo](https://toastmaker.wirehall.com)
 
 ## Features
 
@@ -81,6 +84,7 @@ You can specify multiple styles or your own css classes using `styles` and `clas
   });
 ```
 
+For more examples, check out the live demo page - [ToastMaker Demo](https://toastmaker.wirehall.com)
 
 ## Options
 
