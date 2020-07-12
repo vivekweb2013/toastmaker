@@ -17,15 +17,18 @@ Toast Maker is a simple and very lightweight javascript library for showing toas
 
 ## Features
 
-* [Small footprint](#bundle-size)
-* Customizable styling
-* Can be used with vanilla javascript or npm project
-* Works with - IE10, IE11, Edge, Chrome, Firefox, Safari, Opera
+* [Small Footprint](#bundle-size)
+* Responsive
+* Customizable Styling
+* Can be Used With Vanilla Javascript, NPM Project or ReactJS Project
+* Works With - IE10, IE11, Edge, Chrome, Firefox, Safari, Opera
+* No Dependencies
+* 100% Code Coverage
 
-## Include toastmaker library into the project
+## Include toastmaker library in your project
 
 ### Install toastmaker module in npm project
-Follow the steps mentioned below to install the library in npm project.
+You can install `toastmaker` module in your npm project using npm or yarn.
 
 ```
 npm install --save toastmaker
@@ -109,6 +112,7 @@ Refer [How to use?](#how-to-use) section to know how these options should be use
 | toastmaker   |  ![toastmaker_size] |  ![toastmaker_gzip] |
 | toastify-js  | ![toastify-js_size] | ![toastify-js_gzip] |
 | toastr       |      ![toastr_size] |      ![toastr_gzip] |
+| noty         |        ![noty_size] |        ![noty_gzip] |
 
 [toastmaker_size]: https://img.shields.io/bundlephobia/min/toastmaker
 [toastmaker_gzip]: https://img.shields.io/bundlephobia/minzip/toastmaker
@@ -116,6 +120,8 @@ Refer [How to use?](#how-to-use) section to know how these options should be use
 [toastify-js_gzip]: https://img.shields.io/bundlephobia/minzip/toastify-js
 [toastr_size]: https://img.shields.io/bundlephobia/min/toastr
 [toastr_gzip]: https://img.shields.io/bundlephobia/minzip/toastr
+[noty_size]: https://img.shields.io/bundlephobia/min/noty
+[noty_gzip]: https://img.shields.io/bundlephobia/minzip/noty
 
 ## Versioning
 
@@ -124,3 +130,4 @@ For the versions available, see the [tags on this repository](https://github.com
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
