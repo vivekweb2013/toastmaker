@@ -1,3 +1,17 @@
+<p align="center">
+  <a href="https://toastmaker.wirehall.com">
+    <img src="https://raw.githubusercontent.com/vivekweb2013/toastmaker/master/docs/favicon.svg" width="250">
+  </a>
+
+  <p align="center">
+    Small JavaScript Library for Showing Toast Notifications
+    <br>
+    <a href="https://toastmaker.wirehall.com"><strong>Demo & Documentation</strong></a>
+  </p>
+</p>
+
+<br>
+
 # ToastMaker
 
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/vivekweb2013/toastmaker/npm-build?color=forestgreen)](https://github.com/vivekweb2013/toastmaker/actions?query=workflow%3Anpm-build)
