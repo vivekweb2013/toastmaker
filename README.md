@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://toastmaker.wirehall.com">
+  <a href="https://vivekweb2013.github.io/toastmaker/">
     <img src="https://raw.githubusercontent.com/vivekweb2013/toastmaker/master/docs/favicon.svg" width="250">
   </a>
 
