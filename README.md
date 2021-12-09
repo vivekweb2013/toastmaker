@@ -6,7 +6,7 @@
   <p align="center">
     Small JavaScript Library for Showing Toast Notifications
     <br>
-    <a href="https://toastmaker.wirehall.com"><strong>Demo & Documentation</strong></a>
+    <a href="https://vivekweb2013.github.io/toastmaker/"><strong>Demo & Documentation</strong></a>
   </p>
 </p>
 
@@ -27,7 +27,7 @@ Toast Maker is a simple and very lightweight javascript library for showing toas
 
 ## Demo
 
-[ToastMaker Demo](https://toastmaker.wirehall.com)
+[ToastMaker Demo](https://vivekweb2013.github.io/toastmaker/)
 
 ## Features
 
@@ -101,7 +101,7 @@ You can specify multiple styles or your own css classes using `styles` and `clas
   });
 ```
 
-For more examples, check out the live demo page - [ToastMaker Demo](https://toastmaker.wirehall.com)
+For more examples, check out the live demo page - [ToastMaker Demo](https://vivekweb2013.github.io/toastmaker/)
 
 ## Options
 
