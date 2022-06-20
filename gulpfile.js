@@ -33,6 +33,7 @@ function buildScripts() {
         .pipe(dest(DISTRIBUTABLE_PATH));
 }
 
+
 function buildCss() {
     // store both minified and unminified css to dist
     return src(`${SOURCE_PATH}/*.css`)
@@ -42,6 +43,7 @@ function buildCss() {
         .pipe(rename({ extname: '.min.css' }))
         .pipe(dest(DISTRIBUTABLE_PATH));
 }
+
 
 function generatePackage() {
     // mainly created for ci, so that package can be uploaded to the release page.
